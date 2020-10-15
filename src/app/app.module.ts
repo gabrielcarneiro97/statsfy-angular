@@ -10,12 +10,16 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { pt_BR } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
+import { TesteComponent } from './teste/teste.component';
+import { InnerComponent } from './teste/inner/inner.component';
 
 registerLocaleData(pt);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TesteComponent,
+    InnerComponent
   ],
   imports: [
     BrowserModule,
@@ -25,6 +29,6 @@ registerLocaleData(pt);
     BrowserAnimationsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
