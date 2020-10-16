@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "http://localhost:5001/statsfyng/us-central1/auth",
+    "secure": true,
+    "pathRewrite": {
+    "^/api": ""
+  },
+    "changeOrigin": true
+  }
+}

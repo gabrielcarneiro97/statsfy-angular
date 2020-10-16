@@ -11,6 +11,8 @@ import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { registerLocaleData } from '@angular/common';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 /* Firebase */
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireFunctionsModule, REGION } from '@angular/fire/functions';
@@ -33,6 +35,9 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { MainComponent } from './pages/main/main.component';
 import { MusicListComponent } from './components/music-list/music-list.component';
 import { ItemComponent } from './components/music-list/item/item.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginFormComponent } from './pages/login/login-form/login-form.component';
+import { TokensComponent } from './pages/tokens/tokens.component';
 
 registerLocaleData(pt);
 
@@ -45,6 +50,9 @@ registerLocaleData(pt);
     MainComponent,
     MusicListComponent,
     ItemComponent,
+    LoginComponent,
+    LoginFormComponent,
+    TokensComponent,
   ],
   imports: [
     RouterModule.forRoot([
@@ -52,12 +60,22 @@ registerLocaleData(pt);
         path: '',
         component: MainComponent,
       },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'tokens',
+        component: TokensComponent,
+      },
     ]),
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+
+    FontAwesomeModule,
 
     /* Firebase */
     AngularFireModule.initializeApp(environment.firebase),
