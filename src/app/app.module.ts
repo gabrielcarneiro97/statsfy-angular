@@ -10,8 +10,9 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { pt_BR } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
+import { NzButtonModule } from 'ng-zorro-antd/button';
+
 import { TesteComponent } from './teste/teste.component';
-import { InnerComponent } from './teste/inner/inner.component';
 
 registerLocaleData(pt);
 
@@ -19,14 +20,14 @@ registerLocaleData(pt);
   declarations: [
     AppComponent,
     TesteComponent,
-    InnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NzButtonModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   bootstrap: [AppComponent],
