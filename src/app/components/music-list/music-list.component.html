@@ -1,0 +1,17 @@
+<nz-list nzBordered nzItemLayout="horizontal" class="list">
+  <nz-list-header class="header">
+    {{ title }}
+  </nz-list-header>
+  <app-music-list-item [song]="song" *ngFor="let song of page"></app-music-list-item>
+  <nz-list-empty *ngIf="songs.length === 0"></nz-list-empty>
+  <nz-divider></nz-divider>
+  <nz-list-footer nz-row nzJustify="end">
+    <nz-pagination
+      nz-col
+      [nzPageIndex]="1"
+      [nzPageSize]="pageSize"
+      [nzTotal]="songs.length"
+      (nzPageIndexChange)="getPageData($event)"
+    ></nz-pagination>
+  </nz-list-footer>
+</nz-list>

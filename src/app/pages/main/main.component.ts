@@ -6,10 +6,83 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
+  songs : any[];
 
   constructor() { }
 
   ngOnInit(): void {
+    this.songs = [
+      {
+        name: 'Treat You Better',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Señorita',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Treat You Better',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Señorita',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Treat You Better',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Señorita',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Treat You Better',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Señorita',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Treat You Better',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Señorita',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Treat You Better',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Señorita',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Treat You Better',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+      {
+        name: 'Señorita',
+        artist: 'Shawn Mendes',
+        cover: 'https://upload.wikimedia.org/wikipedia/pt/thumb/4/4d/Shawn_Mendes_-_Illuminate.jpg/220px-Shawn_Mendes_-_Illuminate.jpg',
+      },
+    ];
   }
 
 }

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "statsfyng": {
+      "hosting": {
+        "statsfy-angular": [
+          "statsfyng"
+        ]
+      }
+    }
+  }
+}
