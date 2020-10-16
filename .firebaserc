@@ -7,5 +7,9 @@
         ]
       }
     }
+  },
+  "projects": {
+    "staging": "statsfyng",
+    "default": "statsfyng"
   }
 }
