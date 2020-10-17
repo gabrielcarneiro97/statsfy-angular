@@ -38,7 +38,7 @@ import { ItemComponent } from './components/music-list/item/item.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './pages/login/login-form/login-form.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
-import { NavSignBtnComponent } from './layout/header/nav-logout-btn/nav-sign-btn.component';
+import { NavSignBtnComponent } from './layout/header/nav-sign-btn/nav-sign-btn.component';
 import { AuthGuardService } from './guards/auth.service';
 
 registerLocaleData(pt);

@@ -19,7 +19,7 @@ export class AuthService {
     });
   }
 
-  getExires() {
+  getExpiresIn() {
     if (!this.expiresIn) {
       const fromStorage = localStorage.getItem('expiresIn');
       this.expiresIn = new Date(parseInt(fromStorage, 10));
@@ -95,14 +95,14 @@ export class AuthService {
   }
 
   async check() {
-    if (this.expiresIn.getTime() < new Date().getTime()) {
+    if (this.getExpiresIn().getTime() < new Date().getTime()) {
       await this.refresh();
     }
   }
 
   async checkAndGetAccess() {
     await this.check();
-    return this.accessToken;
+    return this.getAccess();
   }
 
   logout() {
