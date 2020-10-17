@@ -40,7 +40,6 @@ export class NavSignBtnComponent implements OnInit, OnDestroy {
     this.isAuthSub = this.auth.isAuth.subscribe((obs) => {
       this.isAuth = obs.valueOf();
       this.icon = this.isAuth ? faSignOutAlt : faSignInAlt;
-      console.log(this.isAuth);
     });
   }
 

@@ -1,13 +1,13 @@
 <nz-list-item>
   <nz-list-item-meta>
     <nz-list-item-meta-avatar>
-      <img [src]="song.cover" width="60">
+      <img [src]="track.album.images[0].url" width="60" height="60">
     </nz-list-item-meta-avatar>
     <nz-list-item-meta-title>
-      {{ song.name }}
+      {{ track.name }}
     </nz-list-item-meta-title>
     <nz-list-item-meta-description>
-      {{ song.artist }}
+      {{ track.artists[0].name }}
     </nz-list-item-meta-description>
   </nz-list-item-meta>
 </nz-list-item>

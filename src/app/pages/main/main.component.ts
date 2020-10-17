@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SpotifyService } from 'src/app/services/spotify.service';
-
 
 @Component({
   selector: 'app-main',
@@ -10,10 +8,9 @@ import { SpotifyService } from 'src/app/services/spotify.service';
 export class MainComponent implements OnInit {
   songs : any[];
 
-  constructor(private spotify : SpotifyService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.spotify.getTop('tracks', 'medium_term').then(console.log);
     this.songs = [
       {
         name: 'Treat You Better',

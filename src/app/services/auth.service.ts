@@ -1,22 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { observable, Observable, Subscriber } from 'rxjs';
+import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  accessToken : string;
+  accessToken : BehaviorSubject<string>;
   refreshToken : string;
   expiresIn : Date;
   isAuth : Observable<boolean>;
   changeAuth : Subscriber<boolean>;
 
   constructor(private http : HttpClient) {
+    this.load();
+
     this.isAuth = new Observable((observable) => {
       this.changeAuth = observable;
       observable.next(this.checkAuth());
     });
+
+    this.refresh();
+    setInterval(this.refresh, 3500000);
+  }
+
+  load() {
+    this.getRefresh();
+    this.getAccess();
+    this.getExpiresIn();
   }
 
   getExpiresIn() {
@@ -38,7 +49,7 @@ export class AuthService {
 
   getAccess() {
     if (!this.accessToken) {
-      this.accessToken = localStorage.getItem('accessToken');
+      this.accessToken = new BehaviorSubject(localStorage.getItem('accessToken'));
     }
 
     return this.accessToken;
@@ -56,7 +67,12 @@ export class AuthService {
 
   setAccess(accessToken : string) {
     localStorage.setItem('accessToken', accessToken);
-    this.accessToken = accessToken;
+    console.log(accessToken);
+    if (this.accessToken) {
+      this.accessToken.next(accessToken);
+    } else {
+      this.accessToken = new BehaviorSubject(accessToken);
+    }
   }
 
   setAll(accessToken : string, refreshToken : string, expiresIn : Date) {
@@ -86,23 +102,12 @@ export class AuthService {
     this.setAll(query.access_token, query.refresh_token, expiresIn);
   }
 
-  async refresh() {
+  refresh() {
     const refresh = this.getRefresh();
-    const res = await this.http.get(`/api/refresh/${refresh}`).toPromise();
-    this.fromQuery(res as any);
-
-    return true;
-  }
-
-  async check() {
-    if (this.getExpiresIn().getTime() < new Date().getTime()) {
-      await this.refresh();
-    }
-  }
-
-  async checkAndGetAccess() {
-    await this.check();
-    return this.getAccess();
+    const obs = this.http.get(`/api/refresh/${refresh}`);
+    obs.subscribe((data) => {
+      this.fromQuery(data as any);
+    });
   }
 
   logout() {

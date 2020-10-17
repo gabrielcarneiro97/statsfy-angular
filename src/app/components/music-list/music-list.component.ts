@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-music-list',
@@ -6,24 +7,31 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./music-list.component.scss']
 })
 export class MusicListComponent implements OnInit {
-  @Input() songs : any[];
-  @Input() title : string;
+  @Input() data : Observable<any>;
+  @Input() title : string = 'Músicas';
+
+  tracks = [];
+
+  loading : boolean = true;
 
   pageSize : number = 10;
   page : any[];
 
   constructor() { }
 
-
   getPageData(pageIndex : number) {
     const beg = (pageIndex - 1) * this.pageSize;
     const end = beg + this.pageSize;
 
-    this.page = this.songs.slice(beg, end);
+    this.page = this.tracks.slice(beg, end);
   }
 
   ngOnInit(): void {
-    this.getPageData(1);
+    this.data.subscribe((observable) => {
+      this.tracks = observable.valueOf().items;
+      this.getPageData(1);
+      this.loading = false;
+    });
   }
 
 }

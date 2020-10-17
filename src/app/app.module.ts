@@ -40,6 +40,7 @@ import { LoginFormComponent } from './pages/login/login-form/login-form.componen
 import { TokensComponent } from './pages/tokens/tokens.component';
 import { NavSignBtnComponent } from './layout/header/nav-sign-btn/nav-sign-btn.component';
 import { AuthGuardService } from './guards/auth.service';
+import { TopTracksComponent } from './components/top-tracks/top-tracks.component';
 
 registerLocaleData(pt);
 
@@ -56,6 +57,7 @@ registerLocaleData(pt);
     LoginFormComponent,
     TokensComponent,
     NavSignBtnComponent,
+    TopTracksComponent,
   ],
   imports: [
     RouterModule.forRoot([

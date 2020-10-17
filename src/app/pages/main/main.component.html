@@ -1,1 +1,6 @@
-<app-music-list title="Músicas" [songs]="songs"></app-music-list>
+<div nz-row>
+  <app-top-tracks nz-col nzSpan="8" timeRange="short_term" title="Mais Ouvidas Recentemente"></app-top-tracks>
+  <app-top-tracks nz-col nzSpan="8" timeRange="medium_term" title="Mais Ouvidas No Último Mês"></app-top-tracks>
+  <app-top-tracks nz-col nzSpan="8" timeRange="long_term" title="Mais Ouvidas Desde Sempre"></app-top-tracks>
+</div>
+
