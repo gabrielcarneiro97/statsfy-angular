@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NavLogoutBtnComponent } from './nav-logout-btn.component';
+import { NavLogoutBtnComponent } from './nav-sign-btn.component';
 
 describe('NavLogoutBtnComponent', () => {
   let component: NavLogoutBtnComponent;

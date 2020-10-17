@@ -5,11 +5,11 @@ import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-nav-logout-btn',
-  templateUrl: './nav-logout-btn.component.html',
-  styleUrls: ['./nav-logout-btn.component.scss']
+  selector: 'app-nav-sign-btn',
+  templateUrl: './nav-sign-btn.component.html',
+  styleUrls: ['./nav-sign-btn.component.scss']
 })
-export class NavLogoutBtnComponent implements OnInit, OnDestroy {
+export class NavSignBtnComponent implements OnInit, OnDestroy {
   icon;
   isAuthSub : Subscription;
   isAuth : boolean;
