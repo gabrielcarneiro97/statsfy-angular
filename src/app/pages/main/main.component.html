@@ -1,6 +1,24 @@
 <div nz-row>
-  <app-top-tracks nz-col nzSpan="8" timeRange="short_term" title="Mais Ouvidas Recentemente"></app-top-tracks>
-  <app-top-tracks nz-col nzSpan="8" timeRange="medium_term" title="Mais Ouvidas No Último Mês"></app-top-tracks>
-  <app-top-tracks nz-col nzSpan="8" timeRange="long_term" title="Mais Ouvidas Desde Sempre"></app-top-tracks>
+  <app-top-list
+    nz-col
+    nzSpan="8"
+    type="tracks"
+    timeRange="short_term"
+    title="Mais Ouvidas Recentemente"
+  ></app-top-list>
+  <app-top-list
+    nz-col
+    nzSpan="8"
+    type="tracks"
+    timeRange="medium_term"
+    title="Mais Ouvidas No Último Mês"
+  ></app-top-list>
+  <app-top-list
+    nz-col
+    nzSpan="8"
+    type="tracks"
+    timeRange="long_term"
+    title="Mais Ouvidas Desde Sempre"
+  ></app-top-list>
 </div>
 

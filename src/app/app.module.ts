@@ -34,13 +34,17 @@ import { NavMenuComponent } from './layout/header/nav-menu/nav-menu.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MainComponent } from './pages/main/main.component';
 import { MusicListComponent } from './components/music-list/music-list.component';
-import { ItemComponent } from './components/music-list/item/item.component';
+import { ItemComponent } from './components/music-list/music-list-item/music-list-item.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './pages/login/login-form/login-form.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
 import { NavSignBtnComponent } from './layout/header/nav-sign-btn/nav-sign-btn.component';
 import { AuthGuardService } from './guards/auth.service';
 import { TopTracksComponent } from './components/top-tracks/top-tracks.component';
+import { ArtistListComponent } from './components/artist-list/artist-list.component';
+import { ArtistListItemComponent } from './components/artist-list/artist-list-item/artist-list-item.component';
+import { TopListComponent } from './components/top-list/top-list.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 registerLocaleData(pt);
 
@@ -58,6 +62,9 @@ registerLocaleData(pt);
     TokensComponent,
     NavSignBtnComponent,
     TopTracksComponent,
+    ArtistListComponent,
+    ArtistListItemComponent,
+    TopListComponent,
   ],
   imports: [
     RouterModule.forRoot([
@@ -80,6 +87,7 @@ registerLocaleData(pt);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    ScrollingModule,
 
     FontAwesomeModule,
 

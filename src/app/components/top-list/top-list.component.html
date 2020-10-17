@@ -1,0 +1,6 @@
+<ng-container *ngIf="type === 'artists'">
+  <app-artist-list [title]="title" [data]="data"></app-artist-list>
+</ng-container>
+<ng-container *ngIf="type === 'tracks'">
+  <app-music-list [title]="title" [data]="data"></app-music-list>
+</ng-container>

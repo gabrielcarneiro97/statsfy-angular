@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-music-list-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+  templateUrl: './music-list-item.component.html',
+  styleUrls: ['./music-list-item.component.scss']
 })
 export class ItemComponent implements OnInit {
   @Input() track : any;
