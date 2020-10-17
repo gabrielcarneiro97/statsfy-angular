@@ -61,7 +61,7 @@ export class AuthService {
 
   setAll(accessToken : string, refreshToken : string, expiresIn : Date) {
     this.setAccess(accessToken);
-    this.setRefresh(refreshToken);
+    if (refreshToken) this.setRefresh(refreshToken);
     this.setExpiresIn(expiresIn);
     this.changeAuth.next(true);
   }
