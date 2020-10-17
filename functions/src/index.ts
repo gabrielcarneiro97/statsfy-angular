@@ -42,8 +42,32 @@ app.get('/code', async (req, res) => {
     console.error(error);
     res.status(500).send();
   }
+});
 
+app.get('/refresh/:refresh_token', async (req, res) => {
+  const { refresh_token } = req.params;
 
+  const queryString = qs.stringify({
+    grant_type: 'refresh_token',
+    refresh_token
+  });
+
+  try {
+    const spotifyRes = await axios.post('https://accounts.spotify.com/api/token',
+    queryString,
+    {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        Authorization: 'Basic ZDUyNTUwMzU3Yzg2NDYxZjg5MGRjMjBlMmMxNGYyMTM6YzE5ZmJjNTY5MjNkNDU3ZDhjZmQ2NDUxZTYyOGYxZmE='
+      }
+    }
+  );
+
+  res.send(spotifyRes.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send();
+  }
 });
 
 

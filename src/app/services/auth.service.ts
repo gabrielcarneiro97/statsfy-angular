@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { observable, Observable, Subscriber } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +9,15 @@ export class AuthService {
   accessToken : string;
   refreshToken : string;
   expiresIn : Date;
+  isAuth : Observable<boolean>;
+  changeAuth : Subscriber<boolean>;
 
-  constructor() { }
+  constructor(private http : HttpClient) {
+    this.isAuth = new Observable((observable) => {
+      this.changeAuth = observable;
+      observable.next(this.checkAuth());
+    });
+  }
 
   getExires() {
     if (!this.expiresIn) {
@@ -54,6 +63,7 @@ export class AuthService {
     this.setAccess(accessToken);
     this.setRefresh(refreshToken);
     this.setExpiresIn(expiresIn);
+    this.changeAuth.next(true);
   }
 
   unsetExpiresIn() {
@@ -76,15 +86,33 @@ export class AuthService {
     this.setAll(query.access_token, query.refresh_token, expiresIn);
   }
 
-  refresh() {}
+  async refresh() {
+    const refresh = this.getRefresh();
+    const res = await this.http.get(`/api/refresh/${refresh}`).toPromise();
+    this.fromQuery(res as any);
+
+    return true;
+  }
+
+  async check() {
+    if (this.expiresIn.getTime() < new Date().getTime()) {
+      await this.refresh();
+    }
+  }
+
+  async checkAndGetAccess() {
+    await this.check();
+    return this.accessToken;
+  }
 
   logout() {
     this.unsetExpiresIn();
     this.unsetRefresh();
     this.unsetAccess();
+    this.changeAuth.next(false);
   }
 
-  isAuth() {
+  checkAuth() {
     if (!this.refreshToken) {
       this.getRefresh();
     }

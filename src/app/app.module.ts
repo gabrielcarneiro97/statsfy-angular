@@ -38,6 +38,8 @@ import { ItemComponent } from './components/music-list/item/item.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './pages/login/login-form/login-form.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
+import { NavLogoutBtnComponent } from './layout/header/nav-logout-btn/nav-logout-btn.component';
+import { AuthGuardService } from './guards/auth.service';
 
 registerLocaleData(pt);
 
@@ -53,12 +55,14 @@ registerLocaleData(pt);
     LoginComponent,
     LoginFormComponent,
     TokensComponent,
+    NavLogoutBtnComponent,
   ],
   imports: [
     RouterModule.forRoot([
       {
         path: '',
         component: MainComponent,
+        canActivate: [AuthGuardService]
       },
       {
         path: 'login',

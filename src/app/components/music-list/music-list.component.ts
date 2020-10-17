@@ -16,7 +16,6 @@ export class MusicListComponent implements OnInit {
 
 
   getPageData(pageIndex : number) {
-    console.log(pageIndex);
     const beg = (pageIndex - 1) * this.pageSize;
     const end = beg + this.pageSize;
 
