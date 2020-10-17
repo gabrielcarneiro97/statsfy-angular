@@ -12,22 +12,28 @@ export class AuthService {
   isAuth : Observable<boolean>;
   changeAuth : Subscriber<boolean>;
 
-  constructor(private http : HttpClient) {
-    this.load();
+  refreshInterval;
 
+  constructor(private http : HttpClient) {
     this.isAuth = new Observable((observable) => {
       this.changeAuth = observable;
       observable.next(this.checkAuth());
     });
+    if (this.checkAuth()) {
+      this.load();
+    }
+  }
 
+  startRefreshInterval() {
     this.refresh();
-    setInterval(this.refresh, 3500000);
+    this.refreshInterval = setInterval(this.refresh, 3500000);
   }
 
   load() {
     this.getRefresh();
     this.getAccess();
     this.getExpiresIn();
+    this.startRefreshInterval();
   }
 
   getExpiresIn() {
@@ -67,7 +73,6 @@ export class AuthService {
 
   setAccess(accessToken : string) {
     localStorage.setItem('accessToken', accessToken);
-    console.log(accessToken);
     if (this.accessToken) {
       this.accessToken.next(accessToken);
     } else {
@@ -79,6 +84,7 @@ export class AuthService {
     this.setAccess(accessToken);
     if (refreshToken) this.setRefresh(refreshToken);
     this.setExpiresIn(expiresIn);
+    if (!this.refreshInterval) this.startRefreshInterval();
     this.changeAuth.next(true);
   }
 
@@ -114,6 +120,7 @@ export class AuthService {
     this.unsetExpiresIn();
     this.unsetRefresh();
     this.unsetAccess();
+    clearInterval(this.refreshInterval);
     this.changeAuth.next(false);
   }
 
