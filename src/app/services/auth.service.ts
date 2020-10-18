@@ -2,6 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, Subscriber } from 'rxjs';
 
+import { environment } from '../../environments/environment';
+
+const { api } = environment;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -110,7 +114,7 @@ export class AuthService {
 
   refresh() {
     const refresh = this.getRefresh();
-    const obs = this.http.get(`/api/refresh/${refresh}`);
+    const obs = this.http.get(`${api}/refresh/${refresh}`);
     obs.subscribe((data) => {
       this.fromQuery(data as any);
     });

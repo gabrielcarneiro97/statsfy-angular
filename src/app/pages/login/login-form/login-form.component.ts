@@ -2,6 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
 
+import { environment } from '../../../../environments/environment';
+
+const { api } = environment;
+
 
 @Component({
   selector: 'app-login-form',
@@ -14,7 +18,7 @@ export class LoginFormComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   login() {
-    this.http.get('/api/autorize').toPromise().then(({ url } : any) => {
+    this.http.get(`${api}/autorize`).toPromise().then(({ url } : any) => {
       window.location = url;
     });
   }

@@ -3,11 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --proxy-config proxy.config.json",
+    "serve": "ng serve --proxy-config proxy.config.json",
+    "start": "concurrently \"npm run serve\" \"cd functions&&npm run serve\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build --prod && firebase deploy --only hosting"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +28,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.13.0",
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "concurrently": "^5.3.0",
     "firebase": "^7.13.1",
     "ng-zorro-antd": "^10.0.2",
     "rxjs": "~6.6.0",

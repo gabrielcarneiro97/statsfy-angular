@@ -13,10 +13,6 @@ import { registerLocaleData } from '@angular/common';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-/* Firebase */
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireFunctionsModule, REGION } from '@angular/fire/functions';
-
 /* AntD */
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { pt_BR } from 'ng-zorro-antd/i18n';
@@ -33,16 +29,14 @@ import { HeaderComponent } from './layout/header/header.component';
 import { NavMenuComponent } from './layout/header/nav-menu/nav-menu.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MainComponent } from './pages/main/main.component';
-import { MusicListComponent } from './components/music-list/music-list.component';
-import { ItemComponent } from './components/music-list/music-list-item/music-list-item.component';
+import { ListComponent } from './components/list/list.component';
+import { TrackListItemComponent } from './components/list/track-list-item/track-list-item.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LoginFormComponent } from './pages/login/login-form/login-form.component';
 import { TokensComponent } from './pages/tokens/tokens.component';
 import { NavSignBtnComponent } from './layout/header/nav-sign-btn/nav-sign-btn.component';
 import { AuthGuardService } from './guards/auth.service';
-import { TopTracksComponent } from './components/top-tracks/top-tracks.component';
-import { ArtistListComponent } from './components/artist-list/artist-list.component';
-import { ArtistListItemComponent } from './components/artist-list/artist-list-item/artist-list-item.component';
+import { ArtistListItemComponent } from './components/list/artist-list-item/artist-list-item.component';
 import { TopListComponent } from './components/top-list/top-list.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 
@@ -55,14 +49,12 @@ registerLocaleData(pt);
     FooterComponent,
     NavMenuComponent,
     MainComponent,
-    MusicListComponent,
-    ItemComponent,
+    ListComponent,
+    TrackListItemComponent,
     LoginComponent,
     LoginFormComponent,
     TokensComponent,
     NavSignBtnComponent,
-    TopTracksComponent,
-    ArtistListComponent,
     ArtistListItemComponent,
     TopListComponent,
   ],
@@ -91,10 +83,6 @@ registerLocaleData(pt);
 
     FontAwesomeModule,
 
-    /* Firebase */
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireFunctionsModule,
-
     /* AntD */
     NzButtonModule,
     NzLayoutModule,
@@ -106,7 +94,6 @@ registerLocaleData(pt);
   ],
   providers: [
     { provide: NZ_I18N, useValue: pt_BR },
-    { provide: REGION, useValue: 'southamerica-east1' }
   ],
   bootstrap: [AppComponent],
 })
