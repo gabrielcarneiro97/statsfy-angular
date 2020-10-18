@@ -27,7 +27,6 @@ import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 /* App */
 import { HeaderComponent } from './layout/header/header.component';
-import { NavMenuComponent } from './layout/header/nav-menu/nav-menu.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { MainComponent } from './pages/main/main.component';
 import { ListComponent } from './components/list/list.component';
@@ -53,7 +52,6 @@ registerLocaleData(pt);
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    NavMenuComponent,
     MainComponent,
     ListComponent,
     TrackListItemComponent,

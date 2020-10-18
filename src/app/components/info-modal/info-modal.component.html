@@ -6,5 +6,5 @@
   </ng-template>
   <app-track-info [track]="data?.track" *ngIf="type === 'track'"></app-track-info>
   <app-artist-info [artist]="data?.artist" *ngIf="type === 'artist'"></app-artist-info>
-  <app-album-info *ngIf="type === 'album'"></app-album-info>
+  <app-album-info [album]="data?.album" *ngIf="type === 'album'"></app-album-info>
 </nz-modal>

@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
 
   loading = true;
 
-  pageSize = 10;
+  pageSize = 5;
   page : any[];
 
   constructor() { }

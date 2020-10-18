@@ -4,7 +4,7 @@
       {{ title }}
     </h5>
   </nz-list-header>
-  <cdk-virtual-scroll-viewport itemSize="60" class="viewport">
+  <cdk-virtual-scroll-viewport itemSize="40" class="viewport">
     <ng-container *ngIf="type === 'tracks'">
       <app-track-list-item [track]="track" *cdkVirtualFor="let track of page"></app-track-list-item>
     </ng-container>

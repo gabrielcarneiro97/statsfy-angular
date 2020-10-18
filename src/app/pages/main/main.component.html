@@ -1,25 +1,58 @@
+<app-info-modal></app-info-modal>
+<div nz-row nzJustify="center" style="margin-top: 2vh">
+  <h2 nz-typography>
+    Músicas mais Ouvidas
+  </h2>
+</div>
 <div nz-row>
-  <app-info-modal></app-info-modal>
   <app-top-list
     nz-col
     nzSpan="8"
     type="tracks"
     timeRange="short_term"
-    title="Mais Ouvidas Recentemente"
+    title="No Último Mês"
   ></app-top-list>
   <app-top-list
     nz-col
     nzSpan="8"
     type="tracks"
     timeRange="medium_term"
-    title="Mais Ouvidas No Último Mês"
+    title="Últimos Seis Meses"
+  ></app-top-list>
+  <app-top-list
+    nz-col
+    nzSpan="8"
+    type="tracks"
+    timeRange="long_term"
+    title="Desde Sempre"
+  ></app-top-list>
+</div>
+<div nz-row nzJustify="center" style="margin-top: 2vh">
+  <h2 nz-typography>
+    Artistas mais Ouvidos
+  </h2>
+</div>
+<div nz-row>
+  <app-top-list
+    nz-col
+    nzSpan="8"
+    type="artists"
+    timeRange="short_term"
+    title="No Último Mês"
+  ></app-top-list>
+  <app-top-list
+    nz-col
+    nzSpan="8"
+    type="artists"
+    timeRange="medium_term"
+    title="Últimos Seis Meses"
   ></app-top-list>
   <app-top-list
     nz-col
     nzSpan="8"
     type="artists"
     timeRange="long_term"
-    title="Mais Ouvidas Desde Sempre"
+    title="Desde Sempre"
   ></app-top-list>
 </div>
 

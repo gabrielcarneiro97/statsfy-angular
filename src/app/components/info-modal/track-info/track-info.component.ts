@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { faSpotify } from '@fortawesome/free-brands-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCompactDisc, faUser } from '@fortawesome/free-solid-svg-icons';
 import { InfoModalService } from 'src/app/services/info-modal.service';
 
 @Component({
@@ -13,6 +13,7 @@ export class TrackInfoComponent implements OnInit {
 
   faSpotify = faSpotify;
   faUser = faUser;
+  faDisc = faCompactDisc;
 
   constructor(
     private infoModal : InfoModalService,
@@ -28,6 +29,10 @@ export class TrackInfoComponent implements OnInit {
 
   artistInfo() {
     this.infoModal.openModal(this.track.artists[0].id, 'artist');
+  }
+
+  albumInfo() {
+    this.infoModal.openModal(this.track.album.id, 'album');
   }
 
   ngOnInit(): void {

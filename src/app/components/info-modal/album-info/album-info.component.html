@@ -1,1 +1,18 @@
-<p>album-info works!</p>
+<div nz-row nzJustify="center">
+  <img nz-col [src]="album.images[0].url" [alt]="album.name" width="200" height="200">
+</div>
+<div nz-row nzJustify="center">
+  <h3 nz-col nz-typography class="track-name">
+    {{ album.name }}
+  </h3>
+</div>
+<div nz-row nzJustify="center">
+  <span nz-col nz-typography nzType="secondary">
+    {{ album.artists[0].name }}
+  </span>
+</div>
+<app-info-modal-button [icon]="faSpotify" text="Abrir no Spotify" (click)="openSpotify()"></app-info-modal-button>
+<app-info-modal-button [icon]="faUser" text="Informações do Artista" (click)="artistInfo()"></app-info-modal-button>
+
+
+
