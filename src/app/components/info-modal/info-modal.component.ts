@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { InfoModalService, DataType } from '../../services/info-modal.service';
 
@@ -9,8 +10,12 @@ import { InfoModalService, DataType } from '../../services/info-modal.service';
 })
 export class InfoModalComponent implements OnInit {
   show : boolean = false;
-
   data : DataType = null;
+
+  faLeftArrow = faChevronLeft;
+
+  type = '';
+  title = '';
 
   constructor(
     private infoModalService: InfoModalService,
@@ -26,9 +31,25 @@ export class InfoModalComponent implements OnInit {
     });
 
     this.infoModalService.data.subscribe((observable) => {
-      console.log(observable);
       this.data = observable;
+      this.type = this.data?.type;
+
+      switch(this.type) {
+        case 'album':
+          this.title = 'Informações do Álbum';
+          break;
+        case 'track':
+          this.title = 'Informações da Música';
+          break;
+        case 'artist':
+          this.title = 'Informações do Artista';
+          break;
+      }
     });
+  }
+
+  goBack() {
+    this.infoModalService.goBack();
   }
 
 }

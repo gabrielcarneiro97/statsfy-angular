@@ -23,6 +23,7 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 /* App */
 import { HeaderComponent } from './layout/header/header.component';
@@ -40,6 +41,10 @@ import { ArtistListItemComponent } from './components/list/artist-list-item/arti
 import { TopListComponent } from './components/top-list/top-list.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { InfoModalComponent } from './components/info-modal/info-modal.component';
+import { TrackInfoComponent } from './components/info-modal/track-info/track-info.component';
+import { ArtistInfoComponent } from './components/info-modal/artist-info/artist-info.component';
+import { InfoModalButtonComponent } from './components/info-modal/info-modal-button/info-modal-button.component';
+import { AlbumInfoComponent } from './components/info-modal/album-info/album-info.component';
 
 registerLocaleData(pt);
 
@@ -59,6 +64,10 @@ registerLocaleData(pt);
     ArtistListItemComponent,
     TopListComponent,
     InfoModalComponent,
+    TrackInfoComponent,
+    ArtistInfoComponent,
+    InfoModalButtonComponent,
+    AlbumInfoComponent,
   ],
   imports: [
     RouterModule.forRoot([
@@ -95,6 +104,7 @@ registerLocaleData(pt);
     NzPaginationModule,
     NzDividerModule,
     NzModalModule,
+    NzTypographyModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: pt_BR },

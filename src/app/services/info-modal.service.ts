@@ -3,9 +3,10 @@ import { Observable, Subscriber } from 'rxjs';
 import { SpotifyService } from './spotify.service';
 
 export type DataType = {
-  type : 'artist' | 'track';
+  type : 'artist' | 'track' | 'album';
   artist : any;
   track : any;
+  album : any;
 };
 
 @Injectable({
@@ -17,6 +18,9 @@ export class InfoModalService {
 
   data : Observable<DataType>;
   changeData : Subscriber<DataType>;
+
+  lastData = null;
+  dataStack : DataType[] = [];
 
   constructor(
     private spotify : SpotifyService,
@@ -33,17 +37,35 @@ export class InfoModalService {
   }
 
   closeModal() {
+    this.lastData = null;
+    this.dataStack = [];
     this.changeShow.next(false);
   }
 
-  openModal(id : string, type : 'artist' | 'track') {
-    this.spotify.getArtistOrTrack(id, type).subscribe((observable) => {
-      this.changeData.next({
+  openModal(id : string, type : 'artist' | 'track' | 'album') {
+    this.spotify.getArtistTrackOrAlbum(id, type).subscribe((observable) => {
+      const data = {
         type,
         artist: type === 'artist' ? observable.valueOf() : null,
         track: type === 'track' ? observable.valueOf() : null,
-      });
+        album: type === 'album' ? observable.valueOf() : null,
+      };
+      if (this.lastData === null) {
+        this.lastData = data;
+      } else {
+        this.dataStack.push(this.lastData);
+        this.lastData = data;
+      }
+      this.changeData.next(data);
       this.changeShow.next(true);
     });
+  }
+
+  goBack() {
+    if (this.dataStack.length === 0) {
+      return this.closeModal();
+    }
+
+    this.changeData.next(this.dataStack.pop());
   }
 }

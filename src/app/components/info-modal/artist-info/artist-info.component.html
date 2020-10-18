@@ -1,0 +1,11 @@
+<div nz-row nzJustify="center">
+  <img nz-col [src]="artist.images[0].url" [alt]="artist.name" width="200" height="200">
+</div>
+<div nz-row nzJustify="center">
+  <h3 nz-col nz-typography class="track-name">
+    {{ artist.name }}
+  </h3>
+</div>
+<app-info-modal-button [icon]="faSpotify" text="Abrir no Spotify" (click)="openSpotify()"></app-info-modal-button>
+
+

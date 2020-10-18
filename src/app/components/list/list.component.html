@@ -1,6 +1,8 @@
 <nz-list nzBordered nzItemLayout="horizontal" [nzLoading]="loading" class="list">
-  <nz-list-header class="header">
-    {{ title }}
+  <nz-list-header>
+    <h5 nz-typography>
+      {{ title }}
+    </h5>
   </nz-list-header>
   <cdk-virtual-scroll-viewport itemSize="60" class="viewport">
     <ng-container *ngIf="type === 'tracks'">

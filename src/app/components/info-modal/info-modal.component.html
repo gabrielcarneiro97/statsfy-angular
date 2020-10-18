@@ -1,3 +1,10 @@
-<nz-modal [(nzVisible)]="show" nzTitle="The first Modal" (nzOnCancel)="close()">
-  {{ data | json }}
+<nz-modal [nzFooter]="null" [(nzVisible)]="show" [nzTitle]="modalTitle" (nzOnCancel)="close()">
+  <ng-template #modalTitle>
+    <a (click)="goBack()" style="margin-right: 1em;">
+      <fa-icon [icon]="faLeftArrow"></fa-icon>
+    </a>  {{ title }}
+  </ng-template>
+  <app-track-info [track]="data?.track" *ngIf="type === 'track'"></app-track-info>
+  <app-artist-info [artist]="data?.artist" *ngIf="type === 'artist'"></app-artist-info>
+  <app-album-info *ngIf="type === 'album'"></app-album-info>
 </nz-modal>
