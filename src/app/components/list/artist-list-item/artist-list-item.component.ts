@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { InfoModalService } from 'src/app/services/info-modal.service';
 
 @Component({
   selector: 'app-artist-list-item',
@@ -8,7 +10,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ArtistListItemComponent implements OnInit {
   @Input() artist : any;
 
-  constructor() { }
+  faInfo = faInfoCircle;
+
+  constructor(
+    private infoModal : InfoModalService
+  ) { }
+
+  info() {
+    this.infoModal.openModal(this.artist.id, 'artist');
+  }
 
   ngOnInit(): void {
   }

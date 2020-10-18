@@ -10,4 +10,7 @@
       {{ track.artists[0].name }}
     </nz-list-item-meta-description>
   </nz-list-item-meta>
+  <ul nz-list-item-actions>
+    <nz-list-item-action><a (click)="info()"><fa-icon [icon]="faInfo"></fa-icon></a></nz-list-item-action>
+  </ul>
 </nz-list-item>

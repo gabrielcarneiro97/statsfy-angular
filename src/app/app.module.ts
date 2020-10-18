@@ -8,7 +8,6 @@ import pt from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { environment } from '../environments/environment';
 import { registerLocaleData } from '@angular/common';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -23,6 +22,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzListModule } from 'ng-zorro-antd/list';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 /* App */
 import { HeaderComponent } from './layout/header/header.component';
@@ -39,6 +39,7 @@ import { AuthGuardService } from './guards/auth.service';
 import { ArtistListItemComponent } from './components/list/artist-list-item/artist-list-item.component';
 import { TopListComponent } from './components/top-list/top-list.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { InfoModalComponent } from './components/info-modal/info-modal.component';
 
 registerLocaleData(pt);
 
@@ -57,6 +58,7 @@ registerLocaleData(pt);
     NavSignBtnComponent,
     ArtistListItemComponent,
     TopListComponent,
+    InfoModalComponent,
   ],
   imports: [
     RouterModule.forRoot([
@@ -81,6 +83,7 @@ registerLocaleData(pt);
     BrowserAnimationsModule,
     ScrollingModule,
 
+    /* FontAwesome */
     FontAwesomeModule,
 
     /* AntD */
@@ -91,6 +94,7 @@ registerLocaleData(pt);
     NzListModule,
     NzPaginationModule,
     NzDividerModule,
+    NzModalModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: pt_BR },
