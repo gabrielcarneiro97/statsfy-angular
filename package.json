@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy": "ng build --prod && firebase deploy --only hosting"
+    "deploy": "ng build --prod && firebase deploy --only hosting",
+    "deploy-all": "ng build --prod && cd functions && npm run build && cd .. && firebase deploy"
   },
   "private": true,
   "dependencies": {
